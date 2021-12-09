@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>App</title>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <h1 class="title">{{ message }}</h1>
+    <h1 class="title">{{ message1 }}</h1>
+    {{#each nav ~}}
+      <a class="title" href="{{url}}">
+        {{~#if test}}
+          {{~title}}
+        {{~^~}}
+          Empty
+        {{~/if~}}
+      </a><br>
+    {{~/each}}
+
+  </body>
+</html>
