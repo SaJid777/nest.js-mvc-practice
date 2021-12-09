@@ -10,4 +10,9 @@ export class TestController{
     getTest():string {
         return this.testService.getTest();
     }
+
+    @Get('getNewTest')
+    getNewTest():string {
+        return this.testService.getNewTest();
+    }
 }

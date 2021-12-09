@@ -3,6 +3,10 @@ import { Injectable } from "@nestjs/common";
 
 export class TestService{
     getTest():string{
-        return "Test module";
+        return "Test Module";
+    }
+
+    getNewTest():string{
+        return "New Test Module";
     }
 }
