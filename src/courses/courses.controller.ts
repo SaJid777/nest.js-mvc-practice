@@ -23,4 +23,4 @@ export class CoursesController {
         const courses = await this.coursesService.deleteCourse(query.courseId);
         return courses;
     }
-}
+} 
