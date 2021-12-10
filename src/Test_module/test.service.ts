@@ -9,4 +9,8 @@ export class TestService{
     getNewTest():string{
         return "New Test Module";
     }
+
+    postTest(data){
+        return data;
+    }
 }

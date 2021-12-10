@@ -1,9 +1,10 @@
-import { Controller, Get } from "@nestjs/common";
+import { Body, Controller, Get, Post } from "@nestjs/common";
 import { TestService } from "./test.service";
+import { createDto } from "./dtos/create.dto";
 
 @Controller('test')
 
-export class TestController{
+export class TestController{ 
     constructor(private readonly testService : TestService){}
 
     @Get('getTest')
@@ -14,5 +15,10 @@ export class TestController{
     @Get('getNewTest')
     getNewTest():string {
         return this.testService.getNewTest();
+    }
+
+    @Post('postTest')
+    postTest(@Body() data:createDto){
+        return this.testService.postTest(data); 
     }
 }
