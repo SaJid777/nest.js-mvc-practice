@@ -1,5 +1,6 @@
-import { Controller, Get, Post, Render } from '@nestjs/common';
+import { Controller, Get, Post, Request, Render, UseGuards } from '@nestjs/common';
 import { AppService } from './app.service';
+import { LocalAuthGuard } from './auth/local-auth.guard';
 
 @Controller()
 export class AppController {
@@ -21,5 +22,11 @@ export class AppController {
   @Render('index')
   getCustom2Post() {
     return { message: 'Custom world!', message1: 'asdasdasd2', nav: [{ url: "foo", test: true, title: "bar" }, { url: "bar" }] };
+  }
+
+  @UseGuards(LocalAuthGuard)
+  @Post('auth/login')
+  async login(@Request() req:any) {
+    return req.user;
   }
 }
