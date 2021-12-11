@@ -11,7 +11,7 @@ export class CoursesService {
         });
     }
 
-    getCourse(courseId): Promise<any> {
+    getCourse(courseId:any): Promise<any> {
         let id = Number(courseId);
         return new Promise(resolve => {
             const course = this.courses.find(course => course.id === id);
@@ -22,14 +22,14 @@ export class CoursesService {
         });
     }
 
-    addCourse(course): Promise<any> {
+    addCourse(course:any): Promise<any> {
         return new Promise(resolve => {
             this.courses.push(course);
             resolve(this.courses);
         });
     }
 
-    deleteCourse(courseId): Promise<any> {
+    deleteCourse(courseId:any): Promise<any> {
         let id = Number(courseId);
         return new Promise(resolve => {
             let index = this.courses.findIndex(course => course.id === id);
