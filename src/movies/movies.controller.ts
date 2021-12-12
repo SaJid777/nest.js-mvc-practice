@@ -4,11 +4,11 @@ import { MoviesService } from "./movies.service";
 
 @Controller('movies')
 export class MoviesController {
-    constructor(private readonly moviesService : MoviesService){}
+    constructor(private readonly moviesService : MoviesService){} 
 
     @Post('addMovie')
-    addMovie(@Body() body:any, @Res() res:any) {
-        this.moviesService.addMovie(body);
+    async addMovie(@Body() body:any, @Res() res:any) {
+        let insertMovie = await this.moviesService.addMovie(body);
         return res.redirect('/movies'); 
 
     }
@@ -34,9 +34,9 @@ export class MoviesController {
     }
 
     @Post('updateMovie')
-    updateMovie(@Body() body:any, @Res() res:any) {
-        this.moviesService.updateMovie(body);
-        return res.redirect('/movies'); 
+    async updateMovie(@Body() body:any, @Res() res:any) {
+        let movie = await this.moviesService.updateMovie(body);
+        return res.redirect('/movies');
 
     }
 

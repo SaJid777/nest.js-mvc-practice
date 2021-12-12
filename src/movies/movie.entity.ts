@@ -12,7 +12,7 @@ export class Movie {
   title: string;
 
   @Column()
-  category: string;
+  category: string; 
 
   @Column()
   image: string;

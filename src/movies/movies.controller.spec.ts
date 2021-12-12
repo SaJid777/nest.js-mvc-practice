@@ -1,10 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { MoviesController } from './movies.controller';
+import { MoviesController } from './movies.controller'; 
 
 describe('MoviesController', () => {
   let controller: MoviesController;
 
-  beforeEach(async () => {
+  beforeEach(async () => { 
     const module: TestingModule = await Test.createTestingModule({
       controllers: [MoviesController],
     }).compile();
