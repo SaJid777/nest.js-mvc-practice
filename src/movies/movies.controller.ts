@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Render, Res, Param } from "@nestjs/common";
+import { Body, Controller, Get, Post, Render, Res, Param, Put } from "@nestjs/common";
 import { MoviesService } from "./movies.service";
 
 
@@ -31,5 +31,18 @@ export class MoviesController {
     async editMovie(@Param('movieId') movieId:any) {
         let movie = await this.moviesService.findOne(movieId);
         return { movie: movie };
+    }
+
+    @Post('updateMovie')
+    updateMovie(@Body() body:any, @Res() res:any) {
+        this.moviesService.updateMovie(body);
+        return res.redirect('/movies'); 
+
+    }
+
+    @Get('delete/:movieId')
+    async deleteMovie(@Param('movieId') movieId:any, @Res() res:any) {
+        let movie = await this.moviesService.deleteMovie(movieId);
+        return res.redirect('/movies');
     }
 }

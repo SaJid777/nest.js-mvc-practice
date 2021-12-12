@@ -24,10 +24,18 @@ export class MoviesService {
 
       async addMovie(body:any){
         let newMovie = this.moviesRepository.create(body);
-        return this.moviesRepository.save(newMovie);
+        this.moviesRepository.save(newMovie);
+      }
+
+      async updateMovie(body:any){
+        this.moviesRepository.update(body.id,body);
       }
 
       async allMovie(): Promise<Movie[]> {
         return await this.moviesRepository.find();
+      }
+
+      async deleteMovie(id: any): Promise<void> {
+        await this.moviesRepository.delete(id);
       }
 } 
