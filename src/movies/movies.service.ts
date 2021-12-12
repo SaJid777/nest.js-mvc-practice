@@ -37,4 +37,8 @@ export class MoviesService {
       async deleteMovie(id: any): Promise<void> {
         await this.moviesRepository.delete(id);
       }
+
+      categoryMovie(category: string): Promise<Movie[]> {
+        return this.moviesRepository.find({ where: { category: category } });
+      }
 } 

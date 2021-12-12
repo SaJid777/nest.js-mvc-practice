@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Nest</title>
+    <link rel="stylesheet" href="/../css/style.css">
+  </head>
+  <body>
+    <br><br>
+    <a href="/movies">Movielist</a>
+
+    {{#each categories ~}}
+          <br><br>
+          <a href="/movies/categories/{{name}}">{{name}}</a>
+    {{~/each}}
+
+  </body>
+</html>

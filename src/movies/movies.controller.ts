@@ -26,7 +26,20 @@ export class MoviesController {
         return { movies: movieList };
     }
 
-    @Get(':movieId')
+    @Get('/categories')
+    @Render('categories')
+    async categories() {
+        return { categories: [{name:"Drama"}, {name:"Action"}, {name:"Horror"}] };
+    }
+
+    @Get('categories/:category')
+    @Render('categoryMovie') 
+    async categoryMovie(@Param('category') category:any) {
+        let movies = await this.moviesService.categoryMovie(category);
+        return { movies: movies };
+    }
+
+    @Get('edit/:movieId')
     @Render('editMovie')
     async editMovie(@Param('movieId') movieId:any) {
         let movie = await this.moviesService.findOne(movieId);
