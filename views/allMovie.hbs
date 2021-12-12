@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Nest</title>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <br><br>
+    <a href="/movies/addMovie">Add New Movie</a>
+    <br><br>
+    <table>
+      <th class="border">Title</th>
+      <th class="border">Category</th>
+      <th class="border">Image</th>
+      <th class="border">Release Year</th>
+      <th class="border">Aaction</th>
+    
+      {{#each movies ~}}
+        <tr>
+          <td class="border">{{title}}</td>
+          <td class="border">{{category}}</td>
+          <td class="border">{{image}}</td>
+          <td class="border">{{year}}</td>
+          <td class="border"><a href="/movies/{{id}}">Edit</a></td>
+        </tr>    
+      {{~/each}}
+    
+    </table>
+
+  </body>
+</html>
