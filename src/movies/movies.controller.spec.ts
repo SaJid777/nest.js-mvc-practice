@@ -5,7 +5,7 @@ describe('MoviesController', () => {
   let controller: MoviesController;
 
   beforeEach(async () => { 
-    const module: TestingModule = await Test.createTestingModule({
+    const module = await Test.createTestingModule({
       controllers: [MoviesController],
     }).compile();
 
