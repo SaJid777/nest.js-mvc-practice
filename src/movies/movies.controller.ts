@@ -6,7 +6,7 @@ import { MoviesService } from "./movies.service";
 export class MoviesController {
     constructor(private readonly moviesService : MoviesService){} 
 
-    @Post('addMovie')
+    @Post('insertMovie')
     async addMovie(@Body() body:any, @Res() res:any) {
         let insertMovie = await this.moviesService.addMovie(body);
         return res.redirect('/movies'); 

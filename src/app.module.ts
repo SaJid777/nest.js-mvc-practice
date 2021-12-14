@@ -7,10 +7,13 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MoviesModule } from './movies/movies.module';
+import { Connection } from 'typeorm';
 
 @Module({
   imports: [ TypeOrmModule.forRoot(), TestModule, CoursesModule, AuthModule, UsersModule, MoviesModule ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private connection: Connection) {}
+}
